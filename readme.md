@@ -1,14 +1,37 @@
-# Workshop 
+# Workshop: Setting Up Your Dev Environment in Linux
 
-Main repository containing the markdown presentation for the workshop conducted by me :)
+This repository contains the presentations, cheatsheets, and example configs used in the two-day workshop conducted by **João Rossi**
 
-It contains:
-    - presentation-d1.md: 1st day slide
-    - presentation-d2.md: 2nd day slide
-    - nvim-cs.md: my very own neovim cheatsheet
-    - examples/: folder with examples
+---
+## Agenda
+**Day 1**
+- linux recap
+- shells vs terminal emulators
+- terminal customization
+- editors & IDEs
 
+**Day 2**
+- programming languages and version managers
+- dotfiles and productivity
+- Containers and automation
+  
+---
 
-Links to our other repos:
-    - link 1
-    - link 2
+## Contents
+
+- *presentation-d1.md*: slides for the first session 
+- *presentation-d2.md*: slides for the second session 
+- *nvim-cs.md*: my very own neovim cheatsheet (use with moderation...)
+- *examples/*: some working configs
+
+---
+## How to run the slides
+The presentations are written for [maaslalani/slides](https://github.com/maaslalani/slides),a very cool Go CLI
+
+Run them directly in your terminal:
+
+```bash
+slides presentation-d1.md
+slides presentation-d2.md
+```
+
