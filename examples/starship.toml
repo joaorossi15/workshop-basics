@@ -1,0 +1,20 @@
+
+add_newline = true
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+
+[directory]
+truncation_length = 3
+style = "bold blue"
+
+[git_branch]
+symbol = "🌱 "
+style = "purple"
+
+[git_status]
+untracked = "🆕 "
+modified = "✏️ "
+style = "purple"
+
