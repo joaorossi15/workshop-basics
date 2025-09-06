@@ -251,3 +251,98 @@ The terminal is ugly and boring, how to make it cooler?
 - example: 
     - add `PS1='\[\e[1;32m\]\u@\h \[\e[1;34m\]\w \[\e[0m\]\$ '` to ~/.bashrc
     - run `source ~/.bashrc`
+
+---
+
+# Editors and IDEs
+
+this is where you'll spend most of your time, so think carefully and make it look and behave exactly how you want :)
+
+---
+
+## Visual Studio Code
+
+- GUI-based IDE
+- free (but owned by microsoft...)
+- good extension marketplace:
+    - git integration
+    - language LSPs
+    - themes
+    - ...
+- very fast to configure and easy to learn
+- begginer friendly
+
+---
+
+## Neovim (<3)
+- terminal-based editor (NOT AN IDE!!)
+- highly customizable (uses lua)
+- lightweight and really fast
+- more plugins that you can imagine 
+- read a little on: [https://neovim.io/](https://neovim.io/)
+- steep learning curve but VERY powerful
+
+---
+
+## Comparison
+
+**vs code**
+- GUI, modern, easy to start
+- rich ecosystem
+- heavier
+
+**neovim**
+- terminal, lightweight
+- infinite customization
+- steeper learning curve
+
+---
+## Quick Question
+
+why does vs code feel so "complete" out of the box?  
+
+---
+
+## LSP
+
+- language server protocol
+- protocol for communication between editors and language tools
+- provides:
+    - autocomplete
+    - jump to definition
+    - inline diagnosis
+    - hover docs
+    - ...
+- vs code has built-in, thats why it is heavier and slower
+- neovim add them via plugins
+
+---
+
+## Try Customizing :)
+**vs code**
+- open the extensions panel `ctrl+shift+x`
+- search for any theme and install (cool ones)
+    - gruvbox
+    - rose-pine
+    - ...
+
+---
+
+## Try Customizing :)
+**neovim**
+- follow the instructions on [https://lazy.folke.io/installation](https://lazy.folke.io/installation)
+- create a `init.lua` and add `require("config.lazy")`
+- create a directory: `~/.config/nvim/lua/plugins/`
+- create a file inside directory: `colors.lua`
+- search for a github repo containing a colorscheme and follow the instructions there :)
+
+good info/content:
+- great video: [https://www.youtube.com/watch?v=N93cTbtLCIM](https://www.youtube.com/watch?v=N93cTbtLCIM)
+- great initial repo: [https://github.com/LazyVim/starter/tree/main](https://github.com/LazyVim/starter/tree/main)
+
+---
+
+## Homework
+- play a little more with your configs
+- maybe create a github repo with your config files (dotfiles)
+- neovim enthusiasts: try to add a LSP for your favorite language
