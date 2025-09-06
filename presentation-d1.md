@@ -240,6 +240,7 @@ The terminal is ugly and boring, how to make it cooler?
 - create a function with `function name`
 - or edit `~/.config/fish/functions/FUNCTION-NAME.fish`
 - to define PATH, aliases, etc: `~/.config/fish/config.fish`
+- example at `examples/fish_prompt.fish`
 
 
 ---
@@ -251,6 +252,17 @@ The terminal is ugly and boring, how to make it cooler?
 - example: 
     - add `PS1='\[\e[1;32m\]\u@\h \[\e[1;34m\]\w \[\e[0m\]\$ '` to ~/.bashrc
     - run `source ~/.bashrc`
+
+---
+
+## Hands-on: Starship
+- install it via package manager or script
+- enable in your shell:
+    - bash: add `eval "$(starship init bash)"` to `~/.bashrc`
+    - fish: add `starship init fish | source` to `~/.config/fish/config.fish` 
+- to configure, create `~/.config/starship.toml`
+- example at `examples/starship.toml`
+
 
 ---
 
