@@ -4,32 +4,34 @@
 
 *MsC. João Rossi*
 
----
-
-## Agenda
-- linux recap
-- shells vs terminal emulators
-- terminal setup
-- editors & IDEs
-- languages & version managers
-- git setup
-- dotfiles & productivity
-- extras (containers, automation)
-- exercises & resources
 
 
----
 
-## Filesystem Hierarchy
+Agenda
+================
+<!-- incremental_lists: true -->
+1. linux recap
+2. shells vs terminal emulators
+3. terminal setup
+4. editors & IDEs
+
+
+
+
+Filesystem Hierarchy
+===============
+<!-- incremental_lists: true -->
 - `/home` → your personal files and configs
 - `/etc` → system-wide configuration
 - `/usr/bin` → executables and binaries
 - `/var` → logs, caches, spool data
 
 
----
 
-## Filesystem Visualization
+
+
+Filesystem Visualization
+================
 ```
 /
 ├── etc/
@@ -40,22 +42,27 @@
 └── var/
 ```
 
----
-## Files
-- what really is a file?
-    - regular files (text, binaries)
-    - directories (special files mapping names to inodes)
-    - kernel interfaces → `/proc`, `/sys` (virtual filesystems, not on disk)
-    - ...
 
+
+Files
+============
+<!-- incremental_lists: true -->
+- what really is a file?
+    * regular files (text, binaries)
+    * directories (special files mapping names to inodes)
+    * kernel interfaces → `/proc`, `/sys` (virtual filesystems, not on disk)
+    * ...
+<!-- new_lines: 1 -->
 - what linux exposes as a file?
     - memory pages and buffers (kernel data structures)
     - page cache, inodes, task structs
     - ...
 
----
 
-## The Trick
+
+
+The Trick
+===========
 - linux exposes kernel state **as if** it were files
 - `/proc/cpuinfo` → generated on the fly
 - `/sys` → configure devices
@@ -63,9 +70,11 @@
 - not all kernel internals are files
 - but linux tries to expose most resources *like* files
 
----
 
-## Permissions Refresher
+
+
+Permissions Refresher
+================
 - access is controlled with three bits: **rwx**
 - three groups: **user, group, others**
 
@@ -74,9 +83,12 @@ example:
 -rwxr-xr--  1 user staff  script.sh
 ```
 
----
 
-## Changing Permissions
+
+
+Changing Permissions
+================
+<!-- incremental_lists: true -->
 - `chmod` → change read/write/execute bits
 - `chown` → change owner
 - `ls -l` → check current permissions
@@ -86,18 +98,22 @@ chmod +x script.sh
 chown user:group script.sh
 ```
 
----
 
-## Package Managers
+
+
+Package Managers
+================
 linux distros use different managers:
 
 - **debian/ubuntu** → `apt`
 - **fedora** → `dnf`
 - **arch** → `pacman`
 
----
 
-## Package Manager Commands
+
+
+Package Manager Commands
+================
 examples:
 
 ```
@@ -111,9 +127,11 @@ sudo dnf install git
 sudo pacman -R neovim
 ```
 
----
 
-## Shell Basics
+
+
+Shell Basics
+================
 - check your PATH:
 ```
 echo $PATH
@@ -129,18 +147,19 @@ alias ll="ls -la"
 export EDITOR=nvim
 ```
 
----
 
-# Terminal
+
+
+Terminal
+================
 
 Ok, but where do we run our commands?
 
 What really is a terminal?
 
-
----
-
-## Terminal Emulator
+Terminal Emulator
+================
+<!-- incremental_lists: true -->
 - a program that runs inside your graphical environment and **emulates** a text console
 - responsible for appearance and features:
     - font, colors, GPU rendering, etc...
@@ -148,9 +167,11 @@ What really is a terminal?
 - examples: kitty, alacritty, konsole, etc
 
 
----
 
-## Shell
+Shell
+================
+
+<!-- incremental_lists: true -->
 - a program that **interprets** your commands
 - responsible for:
     - autocomplete
@@ -161,32 +182,38 @@ What really is a terminal?
 - the **language** of your terminal
 - examples: bash, zsh, fish, etc
 
----
 
-## Diagram
-```
-~~~graph-easy --as=boxart
-[ terminal emulator ] - to -> [ shell ] - to -> [ programs ]
-~~~
-```
 
----
 
-# Terminal Customization
+Clarifying
+================
+<!-- alignment: center -->
 
+
+| terminal emulator | → | shell | → | programs |
+|-------------------|---|-------|---|----------|
+| the window        |   | the interpreter |   | the work |
+
+
+
+Terminal Customization
+=================
 The terminal is ugly and boring, how to make it cooler?
 
----
 
-## Prompt Customization
 
-- starship: [https://starship.rs/](https://starship.rs/)
-- oh my zsh: [https://ohmyz.sh/](https://ohmyz.sh/)
-- fish: [https://fishshell.com/](https://fishshell.com/)
 
----
+Prompt Customization
+================
+- plain bash prompt
+- starship
+- fish
 
-## Terminal Customization (Kitty)
+
+
+
+Terminal Customization (Kitty)
+================
 - a modern terminal emulator
 - supports:
   - fast and smooth GPU rendering :)
@@ -194,35 +221,43 @@ The terminal is ugly and boring, how to make it cooler?
   - splits and tabs
 - config file: `~/.config/kitty/kitty.conf`
 
----
 
-## Fonts and icons
+
+
+Fonts and icons
+================
 - nerd fonts: [https://nerdfonts.com](https://nerdfonts.com) 
-- examples: JetBrainsMono, FiraCode, IBM VGA
+- examples: JetBrainsMono, FiraCode, DepartureMono
 
----
 
-## Useful CLI Tools
+
+
+Useful CLI Tools
+================
+<!-- incremental_lists: true -->
 - **fzf**: fuzzy finder
   - search files, history, git commits
-- **ripgrep (rg)**: faster grep
 - **bat**: cat clone with syntax highlighting
 - **htop**: interactive process viewer
 - **tree**: directory tree
 - **tmux**: terminal multiplexer
 
----
 
-## Hands-on: Font
+
+
+Hands-on: Font
+================
 - download and install a nerd font:
     - download the file on nerdfonts website
     - unzip to `~/.local/share/fonts/`
     - run `fc-cache -fv`
 
 
----
 
-## Hands-on: Terminal
+
+
+Hands-on: Terminal
+================
 - create a directory with the name `dotfiles`
 - install **Kitty**:
     - sudo apt install -y kitty
@@ -230,10 +265,11 @@ The terminal is ugly and boring, how to make it cooler?
 - create or edit the config file `~/.config/kitty/kitty.conf`
 - access [https://github.com/joaorossi15/dots/tree/b-r](https://github.com/joaorossi15/dots/tree/b-r) to see an example
 
----
 
-## Hands-on: Shell (Fish)
 
+
+Hands-on: Shell (Fish)
+================
 - `sudo apt install -y fish`
 - set as default shell: `chsh -s $(which fish)`
 - everything is a function
@@ -243,9 +279,11 @@ The terminal is ugly and boring, how to make it cooler?
 - example at `examples/fish_prompt.fish`
 
 
----
 
-## Hands-on: Shell (Bash)
+
+
+Hands-on: Shell (Bash)
+================
 - already installed, POSIX compliant
 - edit the ~/.bashrc file
 - less user-friendly
@@ -253,9 +291,11 @@ The terminal is ugly and boring, how to make it cooler?
     - add `PS1='\[\e[1;32m\]\u@\h \[\e[1;34m\]\w \[\e[0m\]\$ '` to ~/.bashrc
     - run `source ~/.bashrc`
 
----
 
-## Hands-on: Starship
+
+
+Hands-on: Starship
+================
 - install it via package manager or script
 - enable in your shell:
     - bash: add `eval "$(starship init bash)"` to `~/.bashrc`
@@ -264,16 +304,19 @@ The terminal is ugly and boring, how to make it cooler?
 - example at `examples/starship.toml`
 
 
----
 
-# Editors and IDEs
 
+
+Editors and IDEs
+================
 this is where you'll spend most of your time, so think carefully and make it look and behave exactly how you want :)
 
----
 
-## Visual Studio Code
 
+
+Visual Studio Code
+================
+<!-- incremental_lists: true -->
 - GUI-based IDE
 - free (but owned by microsoft...)
 - good extension marketplace:
@@ -284,9 +327,12 @@ this is where you'll spend most of your time, so think carefully and make it loo
 - very fast to configure and easy to learn
 - begginer friendly
 
----
 
-## Neovim (<3)
+
+
+Neovim (<3)
+================
+<!-- incremental_lists: true -->
 - terminal-based editor (NOT AN IDE!!)
 - highly customizable (uses lua)
 - lightweight and really fast
@@ -294,10 +340,12 @@ this is where you'll spend most of your time, so think carefully and make it loo
 - read a little on: [https://neovim.io/](https://neovim.io/)
 - steep learning curve but VERY powerful
 
----
 
-## Comparison
 
+
+Comparison
+================
+<!-- incremental_lists: true -->
 **vs code**
 - GUI, modern, easy to start
 - rich ecosystem
@@ -308,15 +356,19 @@ this is where you'll spend most of your time, so think carefully and make it loo
 - infinite customization
 - steeper learning curve
 
----
-## Quick Question
 
+
+
+Quick Question
+================
 why does vs code feel so "complete" out of the box?  
 
----
 
-## LSP
 
+
+LSP
+================
+<!-- incremental_lists: true -->
 - language server protocol
 - protocol for communication between editors and language tools
 - provides:
@@ -325,12 +377,18 @@ why does vs code feel so "complete" out of the box?
     - inline diagnosis
     - hover docs
     - ...
+
+<!-- new_lines: 1 -->
+
+Oh, this explain some things...
 - vs code has built-in, thats why it is heavier and slower
-- neovim add them via plugins
+- neovim can have via plugins
 
----
 
-## Try Customizing :)
+
+
+Try Customizing :)
+================
 **vs code**
 - open the extensions panel `ctrl+shift+x`
 - search for any theme and install (cool ones)
@@ -338,9 +396,11 @@ why does vs code feel so "complete" out of the box?
     - rose-pine
     - ...
 
----
 
-## Try Customizing :)
+
+
+Try Customizing :)
+================
 **neovim**
 - follow the instructions on [https://lazy.folke.io/installation](https://lazy.folke.io/installation)
 - create a `init.lua` and add `require("config.lazy")`
@@ -352,9 +412,11 @@ good info/content:
 - great video: [https://www.youtube.com/watch?v=N93cTbtLCIM](https://www.youtube.com/watch?v=N93cTbtLCIM)
 - great initial repo: [https://github.com/LazyVim/starter/tree/main](https://github.com/LazyVim/starter/tree/main)
 
----
 
-## Homework
+
+
+Homework
+================
 - play a little more with your configs
 - maybe create a github repo with your config files (dotfiles)
 - neovim enthusiasts: try to add a LSP for your favorite language
